@@ -1,7 +1,7 @@
 #
 # Dockerfile for the geOrchestra Users
 #
-FROM postgres:10
+FROM postgis/postgis:13-3.1
 
 MAINTAINER Jean Pommier "jean.pommier@pigeosolutions.fr"
 
@@ -11,9 +11,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         gettext-base \
-        postgresql-10-postgis-2.4 \
-        postgresql-10-postgis-2.4-scripts \
-        postgresql-plpython-10 && \
+        postgresql-plpython3-13 && \
     rm -rf /var/lib/apt/lists/*
 
 COPY pg_hba.conf.tpl /pg_templates/
