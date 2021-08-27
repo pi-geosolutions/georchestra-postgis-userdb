@@ -16,7 +16,7 @@ RUN apt-get update && \
         postgresql-plpython-10 && \
     rm -rf /var/lib/apt/lists/*
 
-COPY pg_hba.conf.tpl /var/lib/postgresql/data/
+COPY pg_hba.conf.tpl /pg_templates/
 COPY --chown=postgres sql/[0-9][0-9]*  license.txt /docker-entrypoint-initdb.d/
 
 ENV LDAP_SERVER=ldap \
