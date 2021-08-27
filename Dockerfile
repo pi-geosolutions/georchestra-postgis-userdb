@@ -16,11 +16,11 @@ RUN apt-get update && \
         postgresql-plpython-10 && \
     rm -rf /var/lib/apt/lists/*
 
-COPY pg_hba.conf.tpl /var/lib/postgresl/data/
+COPY pg_hba.conf.tpl /var/lib/postgresql/data/
 COPY --chown=postgres sql/[0-9][0-9]*  license.txt /docker-entrypoint-initdb.d/
 
 ENV LDAP_SERVER=ldap \
-    LDAP_DN="dc=georchestra,dc=org"
+    LDAP_BASEDN="dc=georchestra,dc=org"
 
 HEALTHCHECK --interval=30s --timeout=30s \
   CMD pg_isready -U $POSTGRES_USER

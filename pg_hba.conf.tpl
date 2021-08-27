@@ -93,9 +93,9 @@ host    replication     all             127.0.0.1/32            trust
 host    replication     all             ::1/128                 trust
 
 # host all all all md5
-host    all             georchestra     10.0.0.0/24             md5
+host    all             $POSTGRES_USER     10.0.0.0/24             md5
 
 # configuring LDAP auth
 
 #host all all all ldap ldapurl="ldap://ldap.georchestra/dc=georchestra,dc=org?uid?sub"
-host all all all ldap ldapurl="ldap://$LDAP_SERVER/$BASEDN?uid?sub"
+host all all all ldap ldapurl="ldap://$LDAP_SERVER/$LDAP_BASEDN?uid?sub"

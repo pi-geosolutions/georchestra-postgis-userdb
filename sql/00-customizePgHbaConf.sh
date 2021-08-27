@@ -26,6 +26,4 @@
 #     #pg_ctl restart -D "$PGDATA" -m fast -w
 # fi
 
-envsubst < "/var/lib/postgresl/data/pg_hba.conf.tpl" > $PGDATA/pg_hba.conf
-ls -la $PGDATA/
-cat $PGDATA/pg_hba.conf
+envsubst < "/var/lib/postgresql/data/pg_hba.conf.tpl" > $PGDATA/pg_hba.conf
