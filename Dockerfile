@@ -18,7 +18,8 @@ COPY pg_hba.conf.tpl /pg_templates/
 COPY --chown=postgres sql/[0-9][0-9]*  license.txt /docker-entrypoint-initdb.d/
 
 ENV LDAP_SERVER=ldap \
-    LDAP_BASEDN="dc=georchestra,dc=org"
+    LDAP_BASEDN="dc=georchestra,dc=org" \
+    PGTUNE_FOLDER="/cm/pgtune"
 
 HEALTHCHECK --interval=30s --timeout=30s \
   CMD pg_isready -U $POSTGRES_USER
