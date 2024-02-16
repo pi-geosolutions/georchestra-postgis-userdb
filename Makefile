@@ -6,7 +6,7 @@ DATE=`date +%Y%m%d`
 all: pull-deps docker-build docker-push
 
 pull-deps:
-	docker pull postgres:10
+	docker pull postgis/postgis:15-3.4
 
 docker-build:
 	docker build -t ${IMAGE}:latest . ;\
